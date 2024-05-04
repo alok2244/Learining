@@ -66,7 +66,7 @@ const CourseDropDown = () => {
     return selectedCourses.length > 0 ? (
       <ul className="nested-dropdown">
         {selectedCourses.map((course, index) => (
-          <li key={index} className="dd_option" onClick={() => handleItemClick(course)}>
+          <li key={index} className="dd_option hover:cursor-pointer hover:text-white hover:bg-p-1 hover:border-none hover:rounded-md" onClick={() => handleItemClick(course)}>
             {course}
           </li>
         ))}
@@ -84,7 +84,8 @@ const CourseDropDown = () => {
           <div className="dd_box ">
             <div className=''>
               <div>
-                <div className="dd_option" onClick={handleGraduateClick}>
+              <div className={`dd_option hover:cursor-pointer hover:border-none hover:rounded-md hover:text-white hover:bg-p-1 ${GraduateButton ? 'bg-p-1 text-white' : ''}`} onClick={handleGraduateClick}>
+
                   Graduate
                 </div>
                 <div className="dd_option" onClick={handlePostGraduateClick}>

@@ -43,7 +43,7 @@ const TopicsDropDown = () => {
                     {Object.entries(TopicTable[0]).map(([topicName]) => (
                         <button
                             key={topicName}
-                            className="dd_option"
+                            className="dd_option hover:cursor-pointer hover:text-white hover:bg-p-1 hover:border-none hover:rounded-md"
                             onClick={() => handleItemClick(topicName, "Home")}
                         >
                             {topicName}

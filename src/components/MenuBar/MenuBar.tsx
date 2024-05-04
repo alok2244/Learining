@@ -3,10 +3,13 @@ import CourseDropDown from '../Drop Down/CourseDropDown';
 import ArticalsDropDown from '../Drop Down/ArticalsDropDown';
 import TopicsDropDown from '../Drop Down/TopicsDropDown';
 import { computerScienceTopics } from '../../../public/asset/Sample_Data/Topic/easyscrolltopic.js'; // Import the list of topics
+import { useNavigate } from 'react-router-dom';
 
 const MenuBar = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [maxScrollWidth, setMaxScrollWidth] = useState(0);
+  const navigate = useNavigate(); // Using useNavigate hook to get the navigation function
+
 
   useEffect(() => {
     if (containerRef.current) {
@@ -20,6 +23,10 @@ const MenuBar = () => {
     if (containerRef.current) {
       containerRef.current.scrollLeft += scrollAmount;
     }
+  };
+
+  const navigateToCategory = (sub,cat) => {
+    navigate(`/${sub}/${cat}`);
   };
 
   return (
@@ -36,9 +43,13 @@ const MenuBar = () => {
         <div className="flex">
           {/* Render the computer science topics */}
           {computerScienceTopics.map((topic, index) => (
-            <h1 key={index} className='flex-none center px-3 font-bold font-mono border-2 hover:bg-p-1 hover:text-white hover:border-[2px] hover:border-black bg-gray-200 rounded-md mx-2'>
-              {topic}
-            </h1>
+            <h1
+            key={index}
+            onClick={() => navigateToCategory(topic, "Home")}
+            className='flex-none center px-3 font-bold font-mono border-2 hover:bg-p-1 hover:cursor-pointer hover:text-white hover:border-[2px] hover:border-black bg-gray-200 rounded-md mx-2'
+          >
+            {topic}
+          </h1>
           ))}
         </div>
       </div>

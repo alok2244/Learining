@@ -38,7 +38,7 @@ const ArticlesDropDown = () => {
         <div ref={dropdownRef} className="dd_box">
           {sampleArticles.map(//@ts-ignore 
             article => (
-              <button key={article.id} className="dd_option" onClick={() => {
+              <button key={article.id} className="dd_option hover:cursor-pointer hover:text-white hover:bg-p-1 hover:border-none hover:rounded-md" onClick={() => {
                 handleItemClick(article.id);
                 toggleDropdown();
               }}>{article.name}</button>
