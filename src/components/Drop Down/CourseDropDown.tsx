@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+//@ts-ignore
 import { Graduate, PostGraduate } from '../../../public/asset/Sample_Data/Courses/CoursesFields';
-import { Button } from '@mantine/core';
 
 const CourseDropDown = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,6 +41,7 @@ const CourseDropDown = () => {
     } else {
       setGraduateButton(true);
       setPostGraduateButton(false);
+      //@ts-ignore
       setSelectedCourses(Graduate.map(course => course.title));
       setIsOpen(true);
     }
@@ -53,6 +54,7 @@ const CourseDropDown = () => {
     } else {
       setGraduateButton(false);
       setPostGraduateButton(true);
+      //@ts-ignore
       setSelectedCourses(PostGraduate.map(course => course.title));
       setIsOpen(true);
     }
